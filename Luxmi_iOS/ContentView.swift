@@ -4,18 +4,26 @@
 //
 //  Created by Mrityunjoy Saha on 5/10/23.
 //
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showSignInView = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                NavigationLink(destination: Welcome(showSignInView: $showSignInView)) {
+                    Text("Thank you for Choosing Us!")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
@@ -24,3 +32,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
